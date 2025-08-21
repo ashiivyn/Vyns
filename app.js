@@ -327,5 +327,25 @@
   if('serviceWorker' in navigator){
     navigator.serviceWorker.register('sw.js').then(()=> console.log('SW registered')).catch(e=> console.warn('SW reg failed', e));
   }
+// Settings modal toggle fix
+let settingsBtn = document.getElementById("settings-btn");
+let settingsModal = document.getElementById("settings-modal");
+let settingsClose = document.getElementById("settings-close");
 
+if (settingsBtn && settingsModal && settingsClose) {
+    settingsBtn.addEventListener("click", () => {
+        settingsModal.style.display = "block";
+    });
+
+    settingsClose.addEventListener("click", () => {
+        settingsModal.style.display = "none";
+    });
+
+    // Close modal if clicked outside
+    window.addEventListener("click", (e) => {
+        if (e.target === settingsModal) {
+            settingsModal.style.display = "none";
+        }
+    });
+     }
 })();
