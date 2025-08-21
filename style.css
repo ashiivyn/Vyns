@@ -1,0 +1,59 @@
+/* NEET Companion - Neon Glass UI */
+:root{
+  --bg:#05060a;
+  --card: rgba(255,255,255,0.02);
+  --muted: rgba(230,240,255,0.7);
+  --accent-h:220;
+  --accent: hsl(var(--accent-h) 95% 64%);
+  --accent-2: hsl(calc(var(--accent-h) + 60) 95% 64%);
+  --radius:14px;
+  --shadow: 0 20px 50px rgba(0,0,0,0.6);
+  --glass-border: rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.02);
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:radial-gradient(700px 500px at 10% 10%, rgba(138,93,255,0.06), transparent), radial-gradient(700px 500px at 95% 20%, rgba(34,211,238,0.04), transparent), var(--bg); color:#eaf4ff; font-family:var(--font); -webkit-font-smoothing:antialiased;}
+.app{display:flex;flex-direction:column;min-height:100vh;gap:12px;padding:12px;}
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);box-shadow:var(--shadow);backdrop-filter: blur(10px) saturate(120%);}
+.brand{display:flex;gap:10px;align-items:center}
+.logo{width:52px;height:52px;border-radius:14px;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent), conic-gradient(from 200deg, var(--accent), var(--accent-2), #22d3ee);box-shadow:0 8px 24px rgba(0,0,0,0.6), 0 0 22px rgba(106,162,255,0.09) inset;}
+.titles .title{font-size:15px;font-weight:800}
+.titles .subtitle{font-size:11px;color:var(--muted);margin-top:2px}
+.top-actions .btn{min-width:44px}
+.btn{padding:10px 12px;border-radius:12px;border:none;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));color:var(--muted);font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.45);}
+.btn.neon{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#02111a;box-shadow:0 12px 36px rgba(106,162,255,0.14);}
+.card{border-radius:12px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);box-shadow:var(--shadow);backdrop-filter: blur(8px) saturate(110%);}
+.main{display:grid;grid-template-columns:1fr;gap:12px}
+.panel{min-height:80px}
+.phase{font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase}
+.center{display:flex;justify-content:center;align-items:center;padding:8px}
+.progress-ring{width:160px;height:160px;position:relative}
+.progress-ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.progress-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;pointer-events:none}
+.timer-large{font-weight:800;font-variant-numeric:tabular-nums;font-size:44px;letter-spacing:1px;color:#eaf4ff}
+.controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:100%;margin-top:6px}
+.bigbtn{flex:1;min-width:96px;padding:10px;border-radius:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.mini{padding:8px}
+.label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.meter-bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.meter-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s ease}
+.row{display:flex;gap:8px;align-items:center}
+.small{font-size:12px}
+.muted{color:var(--muted)}
+.btn-danger{background:linear-gradient(90deg,#ff8a8a,#ff6161);color:#1b0202}
+.rightcol{display:flex;flex-direction:column;gap:12px}
+.feed-list{display:flex;flex-direction:column;gap:8px;max-height:260px;overflow:auto;padding-top:6px}
+.feed-item{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.03)}
+.feed-left{width:8px;height:48px;border-radius:8px;background:linear-gradient(180deg,var(--accent),var(--accent-2));flex-shrink:0}
+.feed-title{font-weight:700}
+.feed-body{margin-top:6px}
+.todos{margin-top:8px;max-height:180px;overflow:auto}
+.todo-item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.03);margin-bottom:8px}
+.formula-list{margin-top:8px;max-height:180px;overflow:auto}
+.chart{width:100%;height:200px;background:transparent;border-radius:10px;margin-top:8px}
+.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:8px;justify-content:space-between;align-items:center}
+.nav-btn{flex:1;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted);font-weight:700}
+.nav-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#02111a;box-shadow:0 10px 30px rgba(106,162,255,0.12)}
+@media(min-width:900px){ .main{grid-template-columns:1fr 360px} .progress-ring{width:220px;height:220px} .timer-large{font-size:64px} }

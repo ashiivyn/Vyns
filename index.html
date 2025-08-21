@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>NEET — National Eligibility cum Entrance Test</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#071022">
+</head>
+<body>
+<div id="app" class="app">
+  <header class="appbar card">
+    <div class="brand">
+      <div class="logo" id="logo"></div>
+      <div class="titles">
+        <div class="title">NEET — National Eligibility cum Entrance Test</div>
+        <div class="subtitle">Study companion • Focus • Feeds • Notes • Analytics</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="btnSettings" class="btn">⚙️</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Left / main column -->
+    <section id="home" class="card panel">
+      <div class="row space-between">
+        <div>
+          <div class="phase" id="phaseLabel">Focus</div>
+          <div class="small muted" id="sessionInfo">Pomodoro • 25/5 • Cycle 1/4</div>
+        </div>
+        <div class="small muted" id="clockNow"></div>
+      </div>
+
+      <div class="center">
+        <div class="progress-ring" aria-hidden>
+          <svg id="ring" viewBox="0 0 120 120" role="img" aria-label="progress">
+            <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs>
+            <circle cx="60" cy="60" r="52" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"></circle>
+            <circle id="bar" cx="60" cy="60" r="52" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" fill="none" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+          </svg>
+          <div class="progress-center">
+            <div id="timeDisplay" class="timer-large">25:00</div>
+            <div id="until" class="small muted">Next: Short Break • End: --:--</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="start" class="btn neon bigbtn">Start</button>
+        <button id="pause" class="btn bigbtn">Pause</button>
+        <button id="skip" class="btn bigbtn">Skip</button>
+      </div>
+
+      <div class="two">
+        <div class="mini card">
+          <div class="label">Today's Focus</div>
+          <div class="meter-bar"><div id="todayFill" class="meter-fill"></div></div>
+          <div class="small muted" id="todayTxt">0 / 240 min</div>
+        </div>
+        <div class="mini card">
+          <div class="label">Cycle</div>
+          <div class="meter-bar"><div id="cycleFill" class="meter-fill"></div></div>
+          <div class="small muted" id="cycleTxt">1 / 4</div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px">
+        <button id="lap" class="btn">Lap</button>
+        <button id="panic" class="btn btn-danger">Panic</button>
+        <button id="exportBtn" class="btn">Export Data</button>
+      </div>
+    </section>
+
+    <!-- Right column with feed, tools, analytics -->
+    <aside class="rightcol">
+      <section id="feeds" class="card panel">
+        <div class="row space-between">
+          <div><strong>NEET Feeds</strong><div class="small muted">Static + custom feeds (no external API required)</div></div>
+          <div class="small muted" id="feedCount">0</div>
+        </div>
+        <div id="feedList" class="feed-list"></div>
+        <div class="feed-controls">
+          <input id="feedUrl" type="text" placeholder="Paste RSS/JSON URL (CORS may apply)">
+          <button id="btnLoadFeed" class="btn">Load</button>
+          <button id="btnSaveFeed" class="btn">Save</button>
+        </div>
+      </section>
+
+      <section id="tools" class="card panel">
+        <div class="row space-between"><div><strong>Tasks & Notes</strong><div class="small muted">Quick todos & sticky notes</div></div><div><button id="btnNewNote" class="btn">New</button></div></div>
+        <input id="todoInput" type="text" placeholder="Add task and press Enter">
+        <div id="todos" class="todos"></div>
+      </section>
+
+      <section id="formulas" class="card panel">
+        <div class="row space-between"><div><strong>Formula Bank</strong><div class="small muted">Save important formulas</div></div><div><button id="btnAddFormula" class="btn">Add</button></div></div>
+        <div id="formulaList" class="formula-list"></div>
+      </section>
+
+      <section id="analytics" class="card panel">
+        <div class="row space-between"><div><strong>Analytics</strong><div class="small muted">Daily, weekly, phase distribution</div></div><div><button id="btnResetStats" class="btn">Reset</button></div></div>
+        <canvas id="chartDaily" class="chart"></canvas>
+        <canvas id="chartPhases" class="chart small" style="height:180px"></canvas>
+      </section>
+
+    </aside>
+  </main>
+
+  <footer class="bottom-nav">
+    <button id="nav-home" class="nav-btn active">Focus</button>
+    <button id="nav-feeds" class="nav-btn">Feeds</button>
+    <button id="nav-tools" class="nav-btn">Tools</button>
+    <button id="nav-analytics" class="nav-btn">Analytics</button>
+  </footer>
+</div>
+
+<!-- templates -->
+<template id="feedTpl">
+  <div class="feed-item">
+    <div class="feed-left"></div>
+    <div class="feed-main">
+      <div class="feed-title"></div>
+      <div class="feed-meta small muted"></div>
+      <div class="feed-body small muted"></div>
+    </div>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
